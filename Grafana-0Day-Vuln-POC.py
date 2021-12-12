@@ -72,13 +72,10 @@ def grafana_vuln_poc(url):
 
 if __name__ == '__main__':
 
-    with open("result-20211209001115.txt", "r", encoding="utf-8") as f:
+    with open("url_list_file.txt", "r", encoding="utf-8") as f:
         url_lib = f.readlines()
     for url_buf in url_lib:
-        if url_buf.replace("\n", "").split("/")[0] == "http:" or url_buf.replace("\n", "").split("/")[0] == "https:":
-            url = url_buf.replace("\n", "").split("/")[0] + "//" + url_buf.replace("\n", "").split("/")[2]
-        else:
-            url = "http://" + url_buf.replace("\n", "").split("/")[0]
+        url = "http://" + url_buf.replace("\n", "")
 
         print("当前测试URL：" + url)
         try:
